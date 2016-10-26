@@ -147,7 +147,7 @@ class GroupMailPlugin extends GenericPlugin {
 	}
 
 	function getTemplatePath($inCore = false) {
-		return parent::getTemplatePath() . 'templates/';
+		return parent::getTemplatePath($inCore) . 'templates/';
 	}
 }
 

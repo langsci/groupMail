@@ -50,7 +50,7 @@ class GroupMailDAO extends DAO {
 			$emails = array();
 			while (!$result->EOF) {
 				$row = $result->getRowAssoc(false);
-				$emails[$this->convertFromDB($row['email'],null)] = $this->convertFromDB($row['first_name']) . " " . $this->convertFromDB($row['last_name']);		 
+				$emails[$this->convertFromDB($row['email'],null)] = $this->convertFromDB($row['first_name'],null) . " " . $this->convertFromDB($row['last_name'],null);		 
 				$result->MoveNext();
 			}
 			$result->Close();

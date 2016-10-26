@@ -103,18 +103,19 @@ class GroupMailHandler extends Handler {
 		$postOr = array();
 		$postAnd = array();
 		$postNot = array();	
+				
 		for ($i=0; $i<sizeof($userGroups);$i++) {
-			$postOr[$i] = $_POST['OR'.$keysUserGroups[$i]];
-			$postAnd[$i] = $_POST['AND'.$keysUserGroups[$i]];
-			$postNot[$i] = $_POST['NOT'.$keysUserGroups[$i]];
+			if (isset($_POST['OR'.$keysUserGroups[$i]])) {$postOr[$i] = $_POST['OR'.$keysUserGroups[$i]];}
+			if (isset($_POST['AND'.$keysUserGroups[$i]])) {$postAnd[$i] = $_POST['AND'.$keysUserGroups[$i]];}
+			if (isset($_POST['NOT'.$keysUserGroups[$i]])) {$postNot[$i] = $_POST['NOT'.$keysUserGroups[$i]];}
 
-			if ($_POST['OR'.$keysUserGroups[$i]]) {
+			if (isset($_POST['OR'.$keysUserGroups[$i]])) {
 				$or[] = $keysUserGroups[$i];
-			}
-			if ($_POST['AND'.$keysUserGroups[$i]]) {
+			} 
+			if (isset($_POST['AND'.$keysUserGroups[$i]])) {   
 				$and[] = $keysUserGroups[$i];
 			}
-			if ($_POST['NOT'.$keysUserGroups[$i]]) {
+			if (isset($_POST['NOT'.$keysUserGroups[$i]])) {   
 				$not[] = $keysUserGroups[$i];
 			}
 		}
